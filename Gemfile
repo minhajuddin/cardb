@@ -38,10 +38,12 @@ group :development do
   gem 'pry-rails'
   gem 'pry-doc'
   gem 'pry-rescue'
+  gem 'annotate'
 end
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
+  gem 'shoulda-matchers'
 end
 
 # production stuff
