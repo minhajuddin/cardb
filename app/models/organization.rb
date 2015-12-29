@@ -2,8 +2,12 @@ class Organization < ActiveRecord::Base
   TYPES = ["Show room", "Service", "Dealer"]
   PRICING_POLICIES = ["Flexible", "Fixed", "Prestige"]
 
+  # validations
   validates_inclusion_of :organization_type, in: TYPES
   validates_inclusion_of :pricing_policy, in: PRICING_POLICIES
+
+  # associations
+  has_many :models
 end
 
 # == Schema Information
