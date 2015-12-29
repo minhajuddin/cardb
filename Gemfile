@@ -44,6 +44,7 @@ end
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'shoulda-matchers'
+  gem 'capybara'
 end
 
 # production stuff
