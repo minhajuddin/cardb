@@ -18,7 +18,8 @@ describe "Model Types", :type => :feature do
 
     it "returns all model_types if a model is found" do
       visit "models/#{model.model_slug}/model_types"
-      json = JSON.parse(page.body)
+      response = JSON.parse(page.body)
+      expect(response['models'])
     end
 
   end
