@@ -2,6 +2,15 @@ require 'rails_helper'
 
 RSpec.describe ModelType, type: :model do
   it { should validate_uniqueness_of(:model_type_slug) }
+
+  describe "#total_price" do
+    it 'uses the policy calculator to compute the total price' do
+      org = Organization.new
+      allow(org).to receive(:pricing_policy_calculator).and_return(double(:total_price => 33))
+      mt = ModelType.new(base_price: 30, model: Model.new(organization: org))
+      expect(mt.total_price).to eq(33)
+    end
+  end
 end
 
 # == Schema Information

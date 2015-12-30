@@ -4,6 +4,11 @@ class ModelType < ActiveRecord::Base
 
   # associations
   belongs_to :model
+
+  def total_price
+    calculator = self.model.organization.pricing_policy_calculator
+    calculator.total_price(self.base_price)
+  end
 end
 
 # == Schema Information

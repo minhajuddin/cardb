@@ -8,6 +8,11 @@ class Organization < ActiveRecord::Base
 
   # associations
   has_many :models
+
+  def pricing_policy_calculator
+    policy_class = "#{pricing_policy}PricingPolicy".constantize
+    policy_class.new
+  end
 end
 
 # == Schema Information
