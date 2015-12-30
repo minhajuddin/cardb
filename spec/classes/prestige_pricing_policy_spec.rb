@@ -1,6 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe PrestigePricingPolicy, type: :model do
+  describe "#total_price" do
+    it "adds margin to the base price" do
+      policy = PrestigePricingPolicy.new
+      allow(policy).to receive(:margin).and_return(30)
+      expect(policy.total_price(20)).to eq(50)
+    end
+  end
+
   describe "#margin" do
     it "returns the count of pubDate elements in the response" do
       policy = PrestigePricingPolicy.new

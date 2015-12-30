@@ -3,6 +3,10 @@ require 'nokogiri'
 
 class FlexiblePricingPolicy
 
+  def total_price(base_price)
+    base_price * margin
+  end
+
   def margin
     # ignore case while matching
     count_of_letter_a = response.scan(/a/i).count

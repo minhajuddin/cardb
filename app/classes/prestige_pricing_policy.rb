@@ -3,6 +3,10 @@ require 'nokogiri'
 
 class PrestigePricingPolicy
 
+  def total_price(base_price)
+    base_price + margin
+  end
+
   def margin
     # ignore case while matching
     pubdate_tag_count = Nokogiri::XML(response).css("pubDate").count

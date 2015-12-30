@@ -3,6 +3,10 @@ require 'nokogiri'
 
 class FixedPricingPolicy
 
+  def total_price(base_price)
+    base_price + margin
+  end
+
   def margin
     # ignore case while matching
     status_count = github_response.scan(/status/i).count
