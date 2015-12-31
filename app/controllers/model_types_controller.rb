@@ -1,16 +1,13 @@
 class ModelTypesController < ApplicationController
   def index
-    model = Model.find_by!(model_slug: params[:model_slug])
-    render json: model
+    @model = Model.find_by!(model_slug: params[:model_slug])
   end
 
   def create
     model = Model.find_by!(model_slug: params[:model_slug])
-    mt = model.model_types.new(model_type_params)
-    if mt.save
-      render json: mt, serializer: ModelTypeFullSerializer
-    else
-      render json: {errors: mt.errors.full_messages}, status: :unprocessable_entity
+    @model_type = model.model_types.new(model_type_params)
+    if !@model_type.save
+      render json: {errors: @model_type.errors.full_messages}, status: :unprocessable_entity
     end
   end
 

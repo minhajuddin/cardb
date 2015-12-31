@@ -54,5 +54,3 @@ gem 'virtus'
 gem 'exception_notification'
 gem 'seed-fu'
 
-gem 'active_model_serializers', github: 'rails-api/active_model_serializers'
-
