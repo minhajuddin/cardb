@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get "models/:model_slug/model_types" => "model_types#index"
+  post "models/:model_slug/model_types_price/:model_type_slug" => "model_types#create"
 end
 
 # The priority is based upon order of creation: first created -> highest priority.
