@@ -5,6 +5,7 @@ class Model < ActiveRecord::Base
 
   # associations
   belongs_to :organization
+  has_many :model_types
 end
 
 # == Schema Information

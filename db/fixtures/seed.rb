@@ -10,3 +10,10 @@ Organization.all.each do |org|
     Model.seed(:id , {id: id, name: "Car #{id}" , model_slug: "c#{id}" , organization_id: org.id})
   end
 end
+
+Model.all.each do |m|
+  3.times do |i|
+    id = (m.id * 10 + i)
+    ModelType.seed(:id , {id: id, name: "Car Type #{m.id}-#{id}" , model_type_slug: "cmt#{id}", model_type_code: "MTC:#{id}", model_id: m.id, base_price: id * 100})
+  end
+end

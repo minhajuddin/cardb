@@ -53,3 +53,6 @@ gem 'thin'
 gem 'virtus'
 gem 'exception_notification'
 gem 'seed-fu'
+
+gem 'active_model_serializers', '0.10.0.rc3'
+
